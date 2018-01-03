@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章编辑</title>
+</head>
+<body>
+
+<div>
+    <form action="{% url 'blog:edit_action' %}" method="post">
+        {% csrf_token %}
+        <!--{% if article %}-->
+        <!--<input type="hidden" name="id" value="{{article.id}}">-->
+        <!--<label>title</label>-->
+        <!--<br>-->
+        <!--<input type="text" id="title" name="title" value="{{article.tilte }}">-->
+        <!--<br>-->
+
+        <!--<label>content</label>-->
+        <!--<br>-->
+        <!--<input type="text" name="content" id="content" value="{{article.content }}">-->
+        <!--<br>-->
+        <!--{% else %}-->
+         <!--<input type="hidden" name="id" value="0">-->
+         <!--<label>title</label>-->
+        <!--<br>-->
+        <!--<input type="text" id="title" name="title">-->
+        <!--<br>-->
+
+        <!--<label>content</label>-->
+        <!--<br>-->
+        <!--<input type="text" name="content" id="content">-->
+        <!--<br>-->
+        <!--{% endif %}-->
+
+
+        <input type="hidden" name="id" value="{{article.id|default:'0'}}">
+        <label>title</label>
+        <br>
+        <input type="text" id="title" name="title" value="{{article.tilte }}">
+        <br>
+
+        <label>content</label>
+        <br>
+        <input type="text" name="content" id="content" value="{{article.content }}">
+        <br>
+
+        <input type="submit"  value="提交">
+    </form>
+</div>
+</body>
+</html>
